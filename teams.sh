@@ -8,13 +8,14 @@ if docker exec "${CONSTAINER_NAME}" true >/dev/null 2>&1; then
 	docker exec "${CONSTAINER_NAME}" "${CONSTAINER_NAME}" "$@"
 	exit $?
 fi
-
-if [[ "$(docker images -q '${CONSTAINER_NAME}' 2>/dev/null)" == "" ]]; then
+export docker_hash="$(docker images -q ${CONSTAINER_NAME} 2>/dev/null)";
+if [[ $docker_hash == "" ]]; then
 	echo "building image ${CONSTAINER_NAME}"
 	docker build --pull -t "${CONSTAINER_NAME}" .
 else
 	echo "image ${CONSTAINER_NAME} already exists"
 fi
+exit
 
 # ensure xdg socket is setup correctly
 rm -f "$CONTAINER_HOME/.xdg.sock"
