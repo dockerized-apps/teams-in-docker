@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONTAINER_HOME=~/.local/share/x11docker/teams
-CONSTAINER_NAME="teams-in-docker"
+CONSTAINER_NAME="teams"
 
 # check if ${CONSTAINER_NAME} container is running and use existing container if so
 if docker exec "${CONSTAINER_NAME}" true >/dev/null 2>&1; then
