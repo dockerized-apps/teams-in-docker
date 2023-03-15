@@ -9,7 +9,7 @@ RUN apt-get install -y \
 		fonts-noto-color-emoji \
 		libsecret-1-0 \
 		pulseaudio \
-	&& curl -L "https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb" > /tmp/teams.deb \
+	&& curl -L "https://web.archive.org/web/20220907132309if_/https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.5.00.10453_amd64.deb" > /tmp/teams.deb \
 	&& apt-get install -y /tmp/teams.deb \
 	&& rm /tmp/teams.deb
 
