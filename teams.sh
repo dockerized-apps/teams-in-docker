@@ -30,7 +30,7 @@ while [ -p "$CONTAINER_HOME/.xdg.sock" ]; do
 	xdg-open "$url"
 done &
 
-x11docker --network --pulseaudio --webcam --hostdisplay --clipboard --gpu --env LANG --home="$CONTAINER_HOME" --name "${CONSTAINER_NAME}" -- "${CONSTAINER_NAME}" /usr/share/teams/teams --disable-namespace-sandbox --disable-setuid-sandbox "$@"
+x11docker --network --pulseaudio --hostdisplay --clipboard --gpu --env LANG --home="$CONTAINER_HOME" --name "${CONSTAINER_NAME}" -- "${CONSTAINER_NAME}" /usr/share/teams/teams --disable-namespace-sandbox --disable-setuid-sandbox "$@"
 
 # cleanup xdg socket
 kill %1 # kill xdg-open loop
